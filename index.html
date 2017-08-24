@@ -24,11 +24,7 @@
         </script>
         <script type="text/javascript">
             function showSelected(u) {
-               var unit = document.getElementById(u);
-               if (unit.value == "Stormtroopers"){
-                   var trooper = Unit(unit.value);
-                   alert (trooper.speed);
-               }
+               Unit(u.value);
             }
         </script>
     </head>
