@@ -5,6 +5,23 @@
         <script src="units.js"></script>
         <script src="upgrades.js"></script>
         <script src="xwl.js"></script>
+        <script>
+            function populate(s1, s2) {
+                var s1 = document.getElementById(s1);
+                var s2 = document.getElementById(s2);
+                s2.innerHTML = "";
+                if (s1.value == "Units"){
+                    var optionArray = ["|", "stormtroopers|Stormtroopers"];
+                }
+                for(var option in optionArray){
+                    var pair = optionArray[option].split("|");
+                    var newOption = document.createElement("option");
+                    newOption.value = pair[0];
+                    newOption.innerHTML = pair[1];
+                    s2.options.add(newOption);
+                }
+            }
+        </script>
     </head>
 
     <body lang="en">
@@ -16,10 +33,13 @@
                     <li>Credits</li>
                 </ul></div>>
         </nav>
-        <select>
+        <select id="select1" name="select1" onchange="populate(this.id, 'select2')">
+            <option value=""></option>
             <option value="Units">Units</option>
             <option value="Upgrades">Upgrades</option>
         </select>
+
+        <select id="select2" name="select2"></select>
 
     </body>
 </html>
