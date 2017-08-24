@@ -22,6 +22,12 @@
                 }
             }
         </script>
+        <script>
+            function showSelected(u) {
+                var u = document.getElementById(u);
+                alert (Unit(u));
+            }
+        </script>
     </head>
 
     <body lang="en">
@@ -39,7 +45,7 @@
             <option value="Upgrades">Upgrades</option>
         </select>
 
-        <select id="select2" name="select2"></select>
+        <select id="select2" name="select2" onchange="showSelected(this.id)"></select>
 
     </body>
 </html>
