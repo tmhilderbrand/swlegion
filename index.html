@@ -2,49 +2,206 @@
 <html>
     <head>
         <title>Star Wars Legion Browser</title>
+        <script src="xwl.js" type="text/javascript"></script>
         <script src="units.js" type="text/javascript"></script>
         <script src="upgrades.js" type="text/javascript"></script>
-        <script src="xwl.js" type="text/javascript"></script>
+        <script src="commands.js"></script>
         <script>
-            function populate(s1, s2) {
-                var s1 = document.getElementById(s1);
-                var s2 = document.getElementById(s2);
-                s2.innerHTML = "";
-                if (s1.value == "Units"){
-                    var optionArray = ["|", "stormtroopers|Stormtroopers", "atat|ATAT"];
+            function showCard() {
+                var x = document.getElementById("card-selector");
+                var y = x.getElementsByTagName("optgroup");
+                alert(y.values(0))
+                if (y == "Units") {
+                    displayUnit();
                 }
-                for(var option in optionArray){
-                    var pair = optionArray[option].split("|");
-                    var newOption = document.createElement("option");
-                    newOption.value = pair[0];
-                    newOption.innerHTML = pair[1];
-                    s2.options.add(newOption);
+                if (x == "AT-RT Flamethrower") {
+                    displayUpgrade();
+                }
+                if (x == "Ambush") {
+                    displayCommand();
                 }
             }
         </script>
-        <script type="text/javascript">
-            function showSelected(u) {
-               Unit(u.value);
+        <script>
+            function displayUnit() {
+                var x = document.getElementById("card-selector").value;
+                var y = Unit(x);
+                document.getElementById("name").innerHTML=y.name;
+                document.getElementById("rank").innerHTML=y.rank;
+                document.getElementById("points").innerHTML=y.points;
+                document.getElementById("keywords").innerHTML=y.keywords;
+                document.getElementById("upgrades").innerHTML=y.upgrades;
+                document.getElementById("weapons").innerHTML=y.weapons;
             }
         </script>
+        <script>
+            function displayUpgrade(){
+                var x = document.getElementById("card-selector").value;
+                var y = Upgrade(x);
+                document.getElementById("up-name").innerHTML=y.name;
+                document.getElementById("up-type").innerHTML=y.type;
+                document.getElementById("up-points").innerHTML=y.points;
+                document.getElementById("up-range").innerHTML=y.range;
+                document.getElementById("up-attack").innerHTML=y.attack;
+                document.getElementById("up-keywords").innerHTML=y.keywords;
+                document.getElementById("up-text").innerHTML=y.text;
+            }
+        </script>
+        <script>
+            function displayCommand(){
+                var x = document.getElementById("card-selector").value;
+                var y = Command(x);
+                document.getElementById("cmd-name").innerHTML=y.name;
+                document.getElementById("cmd-priority").innerHTML=y.priority;
+                document.getElementById("cmd-units").innerHTML=y.units;
+                document.getElementById("cmd-text").innerHTML=y.text;
+                document.getElementById("cmd-commander").innerHTML=y.commander;
+            }
+        </script>
+        <style>
+            body {margin: 0;}
+            .topnav {overflow: hidden; background-color: red;}
+            .topnav a{float: left;display: block;color:black;text-align: center;padding: 14px 16px;text-decoration: none;font-size: 17px;}
+            .topnav a:hover{background-color: tomato; color: black;}
+            .topnav a.active{background-color: darkred; color: black;}
+            .left-div {float: left; width: 250px; height: 20px; background-color: whitesmoke;}
+            .right-div {height: 100%; background-color: whitesmoke;}
+        </style>
     </head>
 
-    <body lang="en">
-        <nav>
-            <span class="h2">Star Wars Legion Browser<span style="font-size: x-small">v0.0.1</span></span><div style="font-size:small;">
-                <ul>
-                    <li>About</li>
-                    <li>Help</li>
-                    <li>Credits</li>
-                </ul></div>>
-        </nav>
-        <select id="select1" name="select1" onchange="populate(this.id, 'select2')">
-            <option value=""></option>
-            <option value="Units">Units</option>
-            <option value="Upgrades">Upgrades</option>
-        </select>
-
-        <select id="select2" name="select2" onchange="showSelected(this.id)"></select>
-
+    <body lang="en" style="background-color:slategray">
+        <div class="topnav">
+            <a class="active" href="#home">Home</a>
+            <a class="about" href="#about">About</a>
+        </div>
+        <div id="unit-browser">
+            <div class="left-div">
+                <select id="card-selector" size="25" onchange="showCard()">
+                    <optgroup label="Units">
+                        <option>Darth Vader</option>
+                        <option>Stormtroopers</option>
+                        <option>74-Z Speeder Bikes</option>
+                        <option>AT-ST</option>
+                        <option>General Veers</option>
+                        <option>Snowtroopers</option>
+                        <option>Luke Skywalker</option>
+                        <option>Rebel Troopers</option>
+                        <option>AT-RT</option>
+                        <option>T-47 Airspeeder</option>
+                    </optgroup>
+                    <optgroup label="Upgrades">
+                        <option>AT-RT Flamethrower</option>
+                        <option>AT-RT Laser Cannon</option>
+                        <option>AT-RT Rotary Blaster</option>
+                        <option>Battle Meditation</option>
+                        <option>Comms Jammer</option>
+                        <option>Concussion Grenade</option>
+                        <option>DLT-19 Stormtrooper</option>
+                        <option>Force Choke</option>
+                        <option>Force Push</option>
+                        <option>Force Reflexes</option>
+                        <option>Grappling Hooks</option>
+                        <option>HH-12 Stormtrooper</option>
+                        <option>Jedi Mind Trick</option>
+                        <option>Long-Range Comlink</option>
+                        <option>MPL-57 Ion Trooper</option>
+                        <option>Rebel Trooper</option>
+                        <option>Saber Throw</option>
+                        <option>Stormtrooper</option>
+                        <option>Targeting Scopes</option>
+                        <option>Z-6 Trooper</option>
+                    </optgroup>
+                    <optgroup label="Commands">
+                        <option>Ambush</option>
+                        <option>Assault</option>
+                        <option>Implaccable</option>
+                        <option>Master of Evil</option>
+                        <option>Maximum Firepower</option>
+                        <option>My Ally Is The Force</option>
+                        <option>New Ways To Motivate Them</option>
+                        <option>Push</option>
+                        <option>Return Of The Jedi</option>
+                        <option>Son Of Skywalker</option>
+                        <option>Standing Orders</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="right-div">
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <td id="name"></td>
+                    </tr>
+                    <tr>
+                        <th>Rank</th>
+                        <td id="rank"></td>
+                    </tr>
+                    <tr>
+                        <th>Keywords</th>
+                        <td id="keywords"></td>
+                    </tr>
+                    <tr>
+                        <th>Upgrades</th>
+                        <td id="upgrades"></td>
+                    </tr>
+                    <tr>
+                        <th>Weapons</th>
+                        <td id="weapons"></td>
+                    </tr>
+                    <tr>
+                        <th>Points</th>
+                        <td id="points"></td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td id="up-name"></td>                    
+                    </tr>
+                    <tr>
+                        <th>Type</th>
+                        <td id="up-type"></td>                    
+                    </tr>
+                    <tr>
+                        <th>Points</th>
+                        <td id="up-points"></td>
+                    </tr>
+                    <tr>
+                        <th>Range</th>
+                        <td id="up-range"></td>
+                    </tr>
+                    <tr>
+                        <th>Attack Value</th>
+                        <td id="up-attack"></td>
+                    </tr>
+                    <tr>
+                        <th>Keywords</th>
+                        <td id="up-keywords"></td>
+                    </tr>
+                    <tr>
+                        <th>Text</th>
+                        <td id="up-text"></td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td id="cmd-name"></td>
+                    </tr>
+                    <tr>
+                        <th>Priority</th>
+                        <td id="cmd-priority"></td>
+                    </tr>
+                    <tr>
+                        <th>Units Ordered</th>
+                        <td id="cmd-units"></td>
+                    </tr>
+                    <tr>
+                        <th>Text</th>
+                        <td id="cmd-text"></td>
+                    </tr>
+                    <tr>
+                        <th>Commander</th>
+                        <td id="cmd-commander"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </body>
 </html>

@@ -1,0 +1,130 @@
+<div id="unit-browser">
+            <div class="left-div">
+                <select id="unit-selector" size="10" onchange="displayUnit()">
+                    <optgroup label="Units">
+                        <option>Darth Vader</option>
+                        <option>Stormtroopers</option>
+                        <option>74-Z Speeder Bikes</option>
+                        <option>AT-ST</option>
+                        <option>General Veers</option>
+                        <option>Snowtroopers</option>
+                        <option>Luke Skywalker</option>
+                        <option>Rebel Troopers</option>
+                        <option>AT-RT</option>
+                        <option>T-47 Airspeeder</option>
+                    </optgroup>
+                </select>
+            </div>
+            
+            <div class="right-div">
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <td id="name"></td>
+                    </tr>
+                    <tr>
+                        <th>Rank</th>
+                        <td id="rank"></td>
+                    </tr>
+                    <tr>
+                        <th>Keywords</th>
+                        <td id="keywords"></td>
+                    </tr>
+                    <tr>
+                        <th>Upgrades</th>
+                        <td id="upgrades"></td>
+                    </tr>
+                    <tr>
+                        <th>Weapons</th>
+                        <td id="weapons"></td>
+                    </tr>
+                    <tr>
+                        <th>Points</th>
+                        <td id="points"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br><br>
+        <div id="upgrade-browser">
+            <div class="left-div">
+                <select id="upgrade-selector" size="10" onchange="displayUpgrade()">
+                    <optgroup label="Upgrades">
+                        <option>AT-RT Flamethrower</option>
+                        <option>AT-RT Laser Cannon</option>
+                        <option>AT-RT Rotary Blaster</option>
+                        <option>Battle Meditation</option>
+                        <option>Comms Jammer</option>
+                        <option>Concussion Grenade</option>
+                        <option>DLT-19 Stormtrooper</option>
+                        <option>Force Choke</option>
+                        <option>Force Push</option>
+                        <option>Force Reflexes</option>
+                        <option>Grappling Hooks</option>
+                        <option>HH-12 Stormtrooper</option>
+                        <option>Jedi Mind Trick</option>
+                        <option>Long-Range Comlink</option>
+                        <option>MPL-57 Ion Trooper</option>
+                        <option>Rebel Trooper</option>
+                        <option>Saber Throw</option>
+                        <option>Stormtrooper</option>
+                        <option>Targeting Scopes</option>
+                        <option>Z-6 Trooper</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="right-div">
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <td id="up-name"></td>                    
+                    </tr>
+                    <tr>
+                        <th>Type</th>
+                        <td id="up-type"></td>                    
+                    </tr>
+                    <tr>
+                        <th>Points</th>
+                        <td id="up-points"></td>
+                    </tr>
+                    <tr>
+                        <th>Range</th>
+                        <td id="up-range"></td>
+                    </tr>
+                    <tr>
+                        <th>Attack Value</th>
+                        <td id="up-attack"></td>
+                    </tr>
+                    <tr>
+                        <th>Keywords</th>
+                        <td id="up-keywords"></td>
+                    </tr>
+                    <tr>
+                        <th>Text</th>
+                        <td id="up-text"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br><br>
+        <div id="command-browser">
+            <div class="left-div">
+                <select id="command-selector" size="20" onchange="displayCommand()">
+                    <optgroup label="Commands">
+                        <option>Master of Evil</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="right-div">
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <td id="cmd-name"></td>
+                    </tr>
+                    <tr>
+                        <th>Priority</th>
+                        <td id="cmd-priority"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
